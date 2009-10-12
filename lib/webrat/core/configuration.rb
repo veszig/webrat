@@ -58,6 +58,10 @@ module Webrat
     # loop? Defaults to 10
     attr_accessor :infinite_redirect_limit
 
+    # What file webrat should log to if not running in :rails or :merb mode.
+    # Defaults to webrat.log
+    attr_accessor :log_file_path
+
     def initialize # :nodoc:
       self.open_error_files = true
       self.application_environment = :test
@@ -68,6 +72,7 @@ module Webrat
       self.infinite_redirect_limit = 10
       self.selenium_browser_key = '*firefox'
       self.selenium_browser_startup_timeout = 5
+      self.log_file_path = 'webrat.log'
     end
 
     def open_error_files? #:nodoc:

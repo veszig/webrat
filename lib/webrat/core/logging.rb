@@ -15,7 +15,7 @@ module Webrat
       when :merb
         ::Merb.logger
       else
-        @logger ||= ::Logger.new("webrat.log")
+        @logger ||= ::Logger.new(Webrat.configuration.log_file_path)
       end
     end
 

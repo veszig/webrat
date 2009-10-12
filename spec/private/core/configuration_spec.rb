@@ -45,6 +45,15 @@ describe Webrat::Configuration do
     config.selenium_server_port.should == 1234
   end
 
+  it "should have a log file path" do
+    Webrat.configuration.should respond_to(:log_file_path)
+  end
+
+  it "should log to webrat.log by default" do
+    config = Webrat::Configuration.new
+    config.log_file_path.should == 'webrat.log'
+  end
+
   describe "Selenium" do
     before :each do
       @config = Webrat::Configuration.new
